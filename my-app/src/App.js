@@ -1,65 +1,31 @@
 import React, { useRef } from "react";
-import emailjs, { init } from "@emailjs/browser";
-import 'bootstrap/dist/css/bootstrap.css';
-// Put any other imports below so that CSS from your
-// components takes precedence over default styles.
-// import './node_modules/tailwindcss';
+import 'bootstrap/dist/css/bootstrap.css';  
 
 function App() {
-  init("user_xxxxxxxxxxxxxxxxxxx");
-  const form = useRef();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs.sendForm("SERVICE_D", "TEMPLAE_ID", form.current, "USER_ID").then(
-      (result) => {
-        alert("Message Sent Successfully");
-        console.log(result.text);
-      },
-      (error) => {
-        alert("Message Sent error");
-        console.log(error.text);
-      }
-    );
-  };
-  return (
-    <div className="container text-center bg-warning">
-      <form className="form font-bold underline" onSubmit={handleSubmit} ref={form}>
-        <h1 className="text-center">Registration Form</h1>
-        <div className="form-row ">
-          <div className="form-group col-md-12">
-            <label htmlFor="First Name">First Name</label>
-            <input type="text" className="form-control" name="firstname" />
-          </div>
-          <div className="form-group col-md-12">
-            <label htmlFor="Last Name">Last Name</label>
-            <input type="text" className="form-control" name="lastname" />
-          </div>
-          <div className="form-group col-12">
-            <label htmlFor="inputAddress">Address</label>
-            <input
-              type="text"
-              className="form-control"
-              id="inputAddress"
-              placeholder="1234 Main St"
-              name="user_address"
-            />
-          </div>
-          <div className="form-group col-md-12">
-            <label htmlFor="message">message</label>
-            <textarea
-              type="text"
-              className="form-control"
-              id="inputmessage4"
-              name="user_message"
-            />
+  
+    return (
+    <div className="container-fluid  bg-warning">
+      <navbar className="navbar navbar-expend-lg">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="">Brand</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <button type="submit" className="btn p-2 btn-primary">
-          Sign in
-        </button>
-      </form>
+      </navbar>
     </div>
   );
 }
